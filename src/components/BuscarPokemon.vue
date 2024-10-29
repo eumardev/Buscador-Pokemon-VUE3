@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="text" v-model="busqueda" placeholder="Buscar Pokémon por nombre o tipo" class="ml-5" />
+    <input type="text" v-model="busqueda" placeholder="Buscar Pokémon por nombre o tipo" class=" ml-4 pl-2" />
     <button @click="buscarPokemon" class="p-0 m-2">Buscar</button>
       <!-- Muestra el mensaje cuando hay texto en la variable -->
       <div v-if="mensaje">{{ mensaje }}</div>
@@ -15,7 +15,7 @@
         <img :src="pokemon.image" alt="Pokémon" class="h-auto w-40 border-b-2" />
         <h3 class="mt-2 text-blue-900 font-bold text-xl pb-1" >{{ capitalizarNombre(pokemon.name) }}</h3>
         <p><strong class=" text-blue-900 ">Tipos:</strong> {{ pokemon.types }}</p>
-        <p class="border-b-2 mb-2">Habilidades: {{ pokemon.abilities }}</p>
+        <p class="border-b-2 mb-2"><strong class=" text-blue-900 ">Habilidades:</strong> {{ pokemon.abilities }}</p>
       </template>
     </TarjetaPokemon>
 
@@ -25,7 +25,7 @@
         v-for="(pokemon, index) in pokemonsPorTipo"
         :key="index"
         @click="mostrarDetallesPokemon(pokemon.name)"
-      >
+        class="bg-blue-900 text-blue-200 my-2  font-bold py-2 px-3 rounded-lg shadow-md transition-transform duration-300 hover:-translate-y-1 hover:bg-blue-200  hover:text-blue-900">
         {{ pokemon.name }}
       </li>
     </ul>
