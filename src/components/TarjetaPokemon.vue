@@ -1,7 +1,7 @@
 <template>
-  <div class=" w-64 h-84 p-2 m-2 flex flex-col items-center border-1 border-white rounded  bg-gradient-to-b from-blue-600 to-yellow-400 shadow-xl shadow-gray-500">
+  <div class=" w-64 h-84 p-2 m-2 flex flex-col items-center border-1 border-white rounded  bg-gradient-to-b from-blue-600 to-miAmarillo shadow-xl shadow-gray-500 transition-transform duration-300 hover:-translate-y-1" >
     <slot :pokemon="pokemon"></slot>
-    <button @click="toggleColeccion" class="p-1 m-1 bg-white rounded">
+    <button @click="toggleColeccion" class="p-1 m-1 bg-miAzul rounded font-semibold text-blue-900">
       {{ estaEnColeccion ? 'Eliminar de colección' : 'Añadir a colección' }}
     </button>
   </div>
