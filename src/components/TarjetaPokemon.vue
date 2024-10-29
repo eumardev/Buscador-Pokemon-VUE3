@@ -1,9 +1,6 @@
 <template>
   <div class="tarjeta">
-    <img :src="pokemon.image" alt="Pokémon" />
-    <h3>{{ pokemon.name }}</h3>
-    <p>Tipos: {{ pokemon.types }}</p>
-    <p>Habilidades: {{ pokemon.abilities }}</p>
+    <slot :pokemon="pokemon"></slot>
     <button @click="toggleColeccion">
       {{ estaEnColeccion ? 'Eliminar de colección' : 'Añadir a colección' }}
     </button>

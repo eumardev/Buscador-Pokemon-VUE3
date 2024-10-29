@@ -9,7 +9,15 @@
         :pokemon="pokemon"
         :estaEnColeccion="true"
         @eliminarPokemon="eliminarDeColeccion"
-      />
+        >
+        <!-- Plantilla personalizada para el contenido del slot -->
+        <template #default="{ pokemon }">
+          <img :src="pokemon.image" alt="Pokémon" />
+          <h3>{{ pokemon.name }}</h3>
+          <p>Tipos: {{ pokemon.types }}</p>
+          <p>Habilidades: {{ pokemon.abilities }}</p>
+        </template>
+      </TarjetaPokemon>
     </div>
   </div>
 </template>

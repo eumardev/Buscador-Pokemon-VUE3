@@ -5,8 +5,18 @@
       <TarjetaPokemon
         :pokemon="pokemon"
         :estaEnColeccion="true"
-        @eliminarPokemon="manejarEliminarPokemon"
-      />
+        @eliminarPokemon="manejarEliminarPokemon">
+                <!-- esto es lo que mostrará mi slot -->
+                <template #default="{ pokemon }"> 
+          <img :src="pokemon.image" alt="Pokémon" />
+          <h3>{{ pokemon.name }}</h3>
+          <p>Tipos: {{ pokemon.types }}</p>
+          <p>Habilidades: {{ pokemon.abilities }}</p>
+          <button @click="manejarEliminarPokemon(pokemon.id)">
+            Eliminar de colección
+          </button>
+        </template>
+      </TarjetaPokemon>
     </div>
   </div>
 </template>

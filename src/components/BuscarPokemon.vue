@@ -10,7 +10,15 @@
       :estaEnColeccion="isInCollection(pokemonSeleccionado.id)"
       @añadirPokemon="añadirAColeccion"
       @eliminarPokemon="eliminarDeColeccion"
-    />
+      >
+      <template #default="{ pokemon }">
+        <img :src="pokemon.image" alt="Pokémon" />
+        <h3>{{ pokemon.name }}</h3>
+        <p>Tipos: {{ pokemon.types }}</p>
+        <p>Habilidades: {{ pokemon.abilities }}</p>
+      </template>
+    </TarjetaPokemon>
+
 
     <ul v-if="pokemonsPorTipo.length">
       <li
