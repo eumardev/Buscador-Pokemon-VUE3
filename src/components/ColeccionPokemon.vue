@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Mi colección de Pokémon</h3>
+    <h3 class="text-center text-blue-800 font-bold text-2xl p-4">Mi colección de Pokémon</h3>
     <div v-for="pokemon in coleccion" :key="pokemon.id">
       <TarjetaPokemon
         :pokemon="pokemon"
@@ -8,10 +8,10 @@
         @eliminarPokemon="manejarEliminarPokemon">
                 <!-- esto es lo que mostrará mi slot -->
                 <template #default="{ pokemon }"> 
-          <img :src="pokemon.image" alt="Pokémon" />
-          <h3>{{ pokemon.name }}</h3>
-          <p>Tipos: {{ pokemon.types }}</p>
-          <p>Habilidades: {{ pokemon.abilities }}</p>
+                  <img :src="pokemon.image" alt="Pokémon" class="h-auto w-40 border-b-2" />
+        <h3 class="mt-2 text-blue-900 font-bold text-xl pb-1" >{{ capitalizarNombre(pokemon.name) }}</h3>
+        <p><strong class=" text-blue-900 ">Tipos:</strong> {{ pokemon.types }}</p>
+        <p class="border-b-2 mb-2">Habilidades: {{ pokemon.abilities }}</p>
           <button @click="manejarEliminarPokemon(pokemon.id)">
             Eliminar de colección
           </button>
@@ -37,5 +37,10 @@ const emit = defineEmits(['eliminarPokemon']);
 const manejarEliminarPokemon = (pokemonId) => {
   emit('eliminarPokemon', pokemonId);
   console.log('Manejando eliminación de Pokémon con ID:', pokemonId);
+};
+// funcion computada para capitalizar la primera letra del pokemon
+const capitalizarNombre = (nombre) => {
+  if (!nombre) return '';
+  return nombre.charAt(0).toUpperCase() + nombre.slice(1);
 };
 </script>

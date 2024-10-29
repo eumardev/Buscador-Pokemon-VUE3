@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header class="flex content-center justify-center items-center h-62 p-2 m-0 bg-gradient-to-b from-blue-600 to-yellow-400" >
       <img alt="Pokémon logo" class="logo" src="../assets/titulo.jpg" width="325" height="125" />
     </header>
   </template>
@@ -9,19 +9,5 @@
   </script>
   
   <style scoped>
-  *{
-  border: 1px solid red;
-}
-  header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    width: 100%;
-  height: 125px; /* Ajusta según el tamaño de tu imagen */
-  overflow: hidden;
-  background: linear-gradient(to bottom, blue, yellow);
-  margin: 0 auto;
-  }
   </style>
   

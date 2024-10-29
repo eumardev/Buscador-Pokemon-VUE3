@@ -1,6 +1,6 @@
 <template>
-    <footer>
-      <p>&copy; 2024 Mi Pokedex. Todos los derechos reservados.</p>
+    <footer class="flex content-center justify-center items-center h-24 p-2 m-0 bg-gradient-to-b from-yellow-400 to-blue-600 mt-4" >
+      <p class="text-center">&copy; 2024 Mi Pokedex. Todos los derechos reservados.</p>
     </footer>
   </template>
   
@@ -9,18 +9,5 @@
   </script>
   
   <style scoped>
-
-    *{
-  border: 1px solid red;
-}
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to bottom, blue, yellow);
-    padding: 10px;
-    color: white;
-    margin: 0 auto; 
-  }
   </style>
   

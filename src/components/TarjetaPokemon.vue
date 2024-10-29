@@ -1,7 +1,7 @@
 <template>
-  <div class="tarjeta">
+  <div class=" w-64 h-84 p-2 m-2 flex flex-col items-center border-1 border-white rounded  bg-gradient-to-r from-blue-600 to-yellow-400 shadow-xl shadow-gray-500">
     <slot :pokemon="pokemon"></slot>
-    <button @click="toggleColeccion">
+    <button @click="toggleColeccion" class="p-1 m-1 bg-white rounded">
       {{ estaEnColeccion ? 'Eliminar de colección' : 'Añadir a colección' }}
     </button>
   </div>
@@ -41,32 +41,4 @@ const toggleColeccion = () => {
 
 
 <style scoped>
-/* Estilos */
-.tarjeta {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  margin: 20px;
-  padding: 5px;
-  background: linear-gradient(to bottom, blue, yellow);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  color: black;
-  width: 250px; /* Ancho fijo de la tarjeta */
-  height: 350px; /* Altura fija de la tarjeta */
-
-}
-img {
-  width: 160px;
-  height: auto;
-  margin: 0 auto;
-  object-fit: contain; /* Mantiene las proporciones de la imagen */
-}
-p{
-margin: 5px auto;
-}
-button{
-margin: 5px auto;
-}
 </style>

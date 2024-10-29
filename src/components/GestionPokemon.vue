@@ -1,7 +1,7 @@
 <template>
   <div>
     <BuscarPokemon @añadirPokemon="añadirAColeccion" />
-    <h2>Mi Colección</h2>
+    <h2 class="text-center text-blue-800 font-bold text-2xl p-4">Mi Colección</h2>
     <div class="coleccion">
       <TarjetaPokemon
         v-for="(pokemon, index) in coleccion"
@@ -11,11 +11,11 @@
         @eliminarPokemon="eliminarDeColeccion"
         >
         <!-- Plantilla personalizada para el contenido del slot -->
-        <template #default="{ pokemon }">
-          <img :src="pokemon.image" alt="Pokémon" />
-          <h3>{{ pokemon.name }}</h3>
-          <p>Tipos: {{ pokemon.types }}</p>
-          <p>Habilidades: {{ pokemon.abilities }}</p>
+        <template #default="{ pokemon }"> 
+                  <img :src="pokemon.image" alt="Pokémon" class="h-auto w-40 border-b-2" />
+        <h3 class="mt-2 text-blue-900 font-bold text-xl pb-1" >{{ capitalizarNombre(pokemon.name) }}</h3>
+        <p><strong class=" text-blue-900 ">Tipos:</strong> {{ pokemon.types }}</p>
+        <p class="border-b-2 mb-2">Habilidades: {{ pokemon.abilities }}</p>
         </template>
       </TarjetaPokemon>
     </div>
@@ -47,17 +47,13 @@ const eliminarDeColeccion = (pokemonId) => {
   coleccion.value = coleccion.value.filter(p => p.id !== pokemonId);
   console.log('Pokémon eliminado de la colección con ID:', pokemonId);
 };
+// funcion computada para capitalizar la primera letra del pokemon
+const capitalizarNombre = (nombre) => {
+  if (!nombre) return '';
+  return nombre.charAt(0).toUpperCase() + nombre.slice(1);
+};
 </script>
 
 
 <style scoped>
-.coleccion {
-  display: flex;
-  flex-wrap: wrap;
-}
-h2 {
-  font-size: 1.5em;
-  /* color: #4CAF50; */
-  text-align: center;
-}
 </style>

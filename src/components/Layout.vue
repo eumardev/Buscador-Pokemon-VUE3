@@ -6,9 +6,9 @@ import Footer from './Footer.vue';
 </script>
 
 <template>
-  <div id="principal">
+  <div id="principal" class="min-h-screen flex flex-col justify-between  bg-yellow-100">
     
-      <Header />
+      <Header/>
    
     
       <Main />
@@ -22,11 +22,4 @@ import Footer from './Footer.vue';
 
 
 <style scoped>
- #principal {
-
-  justify-content: center;
-  width: 100%;
-  margin: 0 auto;
-}
-
 </style>

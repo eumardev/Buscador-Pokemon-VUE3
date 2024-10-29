@@ -1,7 +1,7 @@
 <template>
   <div>
-    <input type="text" v-model="busqueda" placeholder="Buscar Pokémon por nombre o tipo" />
-    <button @click="buscarPokemon">Buscar</button>
+    <input type="text" v-model="busqueda" placeholder="Buscar Pokémon por nombre o tipo" class="ml-5" />
+    <button @click="buscarPokemon" class="p-0 m-2">Buscar</button>
       <!-- Muestra el mensaje cuando hay texto en la variable -->
       <div v-if="mensaje">{{ mensaje }}</div>
     <TarjetaPokemon
@@ -12,10 +12,10 @@
       @eliminarPokemon="eliminarDeColeccion"
       >
       <template #default="{ pokemon }">
-        <img :src="pokemon.image" alt="Pokémon" />
-        <h3>{{ pokemon.name }}</h3>
-        <p>Tipos: {{ pokemon.types }}</p>
-        <p>Habilidades: {{ pokemon.abilities }}</p>
+        <img :src="pokemon.image" alt="Pokémon" class="h-auto w-40 border-b-2" />
+        <h3 class="mt-2 text-blue-900 font-bold text-xl pb-1" >{{ capitalizarNombre(pokemon.name) }}</h3>
+        <p><strong class=" text-blue-900 ">Tipos:</strong> {{ pokemon.types }}</p>
+        <p class="border-b-2 mb-2">Habilidades: {{ pokemon.abilities }}</p>
       </template>
     </TarjetaPokemon>
 
@@ -77,7 +77,9 @@ const buscarPokemon = async () => {
         :  'No se encontraron resultados';
     } else {
       procesarDatosPokemon(resultado);
-      mensaje.value = null; // Limpiamos el mensaje si se encontró un Pokémon
+      setTimeout(() => {
+      mensaje.value = "";
+  },1000);
     }
   } catch (err) {
     mensaje.value = err.message || 'No se encontraron resultados';
@@ -93,6 +95,9 @@ const mostrarDetallesPokemon = async (nombre) => {
   const url = `https://pokeapi.co/api/v2/pokemon/${nombre}`;
   loading.value = true;
   mensaje.value = 'Buscando...'; // Mensaje de carga
+  setTimeout(() => {
+      mensaje.value = "";
+  },3000);
   error.value = null;
 
   try {
@@ -148,6 +153,11 @@ const procesarDatosPokemon = (data) => {
     types: data.types.map((t) => t.type.name).join(', '),
     abilities: data.abilities.map((a) => a.ability.name).join(', '),
   };
+};
+// funcion computada para capitalizar la primera letra del pokemon
+const capitalizarNombre = (nombre) => {
+  if (!nombre) return '';
+  return nombre.charAt(0).toUpperCase() + nombre.slice(1);
 };
 </script>
 
